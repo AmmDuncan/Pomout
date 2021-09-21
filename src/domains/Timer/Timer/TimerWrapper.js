@@ -56,12 +56,22 @@ const TimerWrapper = styled.article`
 
   @media screen and ${breakpoints.tablet} {
     margin-top: 1.6rem;
-    margin-bottom: 6.4rem;
+    margin-bottom: 8.8rem;
   }
 
-  @media screen and (max-height: 460px) {
+  @media screen and (max-height: 520px) {
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
+  }
+
+  @media screen and (max-height: 456px) {
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+  }
+
+  @media screen and (max-height: 432px) {
+    margin-top: 1rem;
+    margin-bottom: -1.6rem;
   }
 `;
 
