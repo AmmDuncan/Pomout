@@ -46,10 +46,9 @@ function App() {
     if (timeRemaining === 0) {
       dispatch(timerSlice.actions.playSound(theme.audio.done));
       dispatch(timerSlice.actions.end(timerWithProjectId));
-      const showNotification = document.visibilityState !== "visible";
-      if (showNotification) {
-        const permissionGranted = Notification.permission === "granted";
-        if (permissionGranted) {
+      // const showNotification = document.visibilityState !== "visible";
+      if ("Notification" in window) {
+        if (Notification.permission === "granted") {
           const title = "POMOUT";
           const task = activeTask
             ? tasks.find((task) => task.id === activeTask)
