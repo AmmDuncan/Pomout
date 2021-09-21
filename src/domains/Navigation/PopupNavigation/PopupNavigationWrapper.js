@@ -6,7 +6,7 @@ const PopupNavigationWrapper = styled(Card)`
   position: fixed;
   z-index: 2000;
   width: 100vw;
-  height: 80vh;
+  height: 70vh;
   border-top-left-radius: 0.8rem;
   border-top-right-radius: 0.8rem;
   border: 1px solid ${(props) => props.theme.header_border};
@@ -16,7 +16,7 @@ const PopupNavigationWrapper = styled(Card)`
   display: none;
 
   &.open {
-    top: 20vh;
+    top: 30vh;
   }
 
   @media screen and ${(props) => props.breakpoint} {
