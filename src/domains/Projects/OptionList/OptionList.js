@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Option from "./Option";
-import { CheckIcon, EditIcon, TimerOptionIcon } from "@assets/Icons";
+import { CheckIcon, SettingsIcon, TimerOptionIcon } from "@assets/Icons";
 
 const OptionListWrapper = styled.section`
   right: 0;
@@ -47,7 +47,7 @@ const OptionList = ({
 
   const editOption = (
     <Option onClick={(e) => editClicked(id)}>
-      <EditIcon fill={fill} />
+      <SettingsIcon fill={fill} />
     </Option>
   );
 
