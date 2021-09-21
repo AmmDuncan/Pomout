@@ -25,7 +25,7 @@ export const settingsSlice = createSlice({
   },
   extraReducers: {
     [timerSlice.actions.end]: (state, action) => {
-      const { pomodoroLength, remaining, next } = action.payload;
+      const { next } = action.payload;
       if (next === "break") {
         state.timeSpent += action.payload.pomodoroLength * 60;
         state.numberOfPomodoros += 1;

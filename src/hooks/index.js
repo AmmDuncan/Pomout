@@ -72,6 +72,8 @@ export const useSettingsEffect = (initialValue, actionCreator) => {
     dispatch(actionCreator(settings));
     // }, 10)
     // );
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [actionCreator, settings, dispatch]);
 
   return [settings, setSettings];

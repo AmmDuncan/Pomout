@@ -1,11 +1,6 @@
 import React, { useCallback } from "react";
 import Button, { ButtonPrimary } from "@components/Button/Button";
-import { useSelector } from "react-redux";
-import {
-  useProjects,
-  useTasks,
-  useTimerWithProjectId,
-} from "../../../../hooks";
+import { useTimerWithProjectId } from "@hooks";
 
 const TimerControls = (props) => {
   const {
@@ -37,7 +32,7 @@ const TimerControls = (props) => {
     if (!timerStarted) {
       setTimerStarted(true);
     }
-  }, [pause]);
+  }, [pause, setTimerStarted, timerStarted]);
 
   const onContinueClick = useCallback(() => {
     props.continue({
@@ -49,7 +44,7 @@ const TimerControls = (props) => {
   const onStopClick = useCallback(() => {
     props.stop(timerWithProjectId);
     setTimerStarted(false);
-  }, [props]);
+  }, [props, setTimerStarted, timerWithProjectId]);
 
   return (
     <section className="ctas">

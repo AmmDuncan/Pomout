@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { LocalStorage } from "../../utility/LocalStorage";
 // import { tasksSlice } from "@store";
 
 const SOUND = new Audio();

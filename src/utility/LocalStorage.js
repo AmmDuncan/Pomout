@@ -8,6 +8,6 @@ export const LocalStorage = {
   },
   clear: () => {
     localStorage.clear();
-    window.location = window.location;
+    window.location = window.location.toString();
   },
 };

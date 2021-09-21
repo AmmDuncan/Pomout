@@ -73,7 +73,7 @@ export const projectsSlice = createSlice({
     //   LocalStorage.set("projects", JSON.stringify(state));
     // },
     [timerSlice.actions.end]: (state, action) => {
-      const { activeTask, next, pomodoroLength, projectId } = action.payload;
+      const { next, pomodoroLength, projectId } = action.payload;
       const project = state.find((project) => project.id === projectId);
       if (next === "break" && project) {
         project.timeSpent += pomodoroLength * 60;
@@ -82,8 +82,7 @@ export const projectsSlice = createSlice({
       LocalStorage.set("projects", JSON.stringify(state));
     },
     [timerSlice.actions.stop]: (state, action) => {
-      const { activeTask, next, pomodoroLength, remaining, projectId } =
-        action.payload;
+      const { next, pomodoroLength, remaining, projectId } = action.payload;
       const project = state.find((project) => project.id === projectId);
       if (next === "break" && project) {
         project.timeSpent += pomodoroLength * 60 - remaining;

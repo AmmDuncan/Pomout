@@ -11,7 +11,6 @@ import {
   useFetchProjects,
   useFetchSettings,
   useFetchTasks,
-  useProjects,
   useTasks,
   useTimerWithProjectId,
 } from "./hooks";
@@ -64,7 +63,7 @@ function App() {
         }
       }
     }
-  }, [timeRemaining, theme, dispatch]);
+  }, [timeRemaining, theme, dispatch, timerWithProjectId, tasks, activeTask]);
 
   return (
     <AppWrapper theme={theme}>
