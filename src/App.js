@@ -31,10 +31,7 @@ function App() {
 
   useEffect(() => {
     if (typeof Notification !== "undefined") {
-      if (
-        Notification.permission === "default" ||
-        Notification.permission === "denied"
-      ) {
+      if (Notification.permission === "default") {
         Notification.requestPermission().then((permission) =>
           console.log(permission)
         );
