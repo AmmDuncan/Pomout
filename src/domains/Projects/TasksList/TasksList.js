@@ -63,10 +63,20 @@ const TasksList = ({ projectId }) => {
           remaining: pomodoroLength * 60,
         })
       );
-      dispatch(start(playInfo()));
+      dispatch(
+        start({
+          timestamp: new Date().getTime(),
+          fn: () => dispatch(updateElapsed(new Date().getTime())),
+        })
+      );
       history.push("/");
     } else {
-      dispatch(timerSlice.actions.continue(playInfo()));
+      dispatch(
+        timerSlice.actions.continue({
+          timestamp: new Date().getTime(),
+          fn: () => dispatch(updateElapsed(new Date().getTime())),
+        })
+      );
     }
   };
 
