@@ -45,7 +45,10 @@ function App() {
       dispatch(timerSlice.actions.end(timerWithProjectId));
       // const showNotification = document.visibilityState !== "visible";
       if ("Notification" in window) {
-        if (Notification.permission === "granted") {
+        if (
+          Notification.permission === "granted" &&
+          document.visibilityState !== "visible"
+        ) {
           const title = "POMOUT";
           const task = activeTask
             ? tasks.find((task) => task.id === activeTask)
