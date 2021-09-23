@@ -40,10 +40,6 @@ const TasksList = ({ projectId }) => {
 
   const startTimer = (taskId) => {
     const task = tasks.find((task) => task.id === taskId);
-    const playInfo = () => ({
-      timestamp: new Date().getTime(),
-      fn: () => dispatch(updateElapsed(new Date().getTime())),
-    });
     const {
       id: activeTask,
       pomodoroLength,
