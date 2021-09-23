@@ -103,19 +103,13 @@ export const timerSlice = createSlice({
         ? tasks.find((task) => task.id === taskId)
         : tasks.find((task) => task.projectId === projectId);
       if (!taskId) {
+        // if project was deleted
         if (task && task.id === state.activeTask) state.activeTask = null;
       } else {
+        // if task was completed
         if (task && !task.completed) state.activeTask = null;
       }
     },
-  },
-  extraReducers: {
-    // [tasksSlice.actions.toggleComplete]: (state, action) => {
-    //   if (state.activeTask === action.payload) {
-    //     state.activeTask = null;
-    //   }
-    //   LocalStorage.set("timer", JSON.stringify(state));
-    // },
   },
 });
 

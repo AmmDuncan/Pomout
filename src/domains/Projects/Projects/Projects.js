@@ -10,6 +10,7 @@ import ProjectsList from "../ProjectsList/ProjectsList";
 import TasksList from "../TasksList/TasksList";
 
 import { useProjects } from "@hooks";
+import { Unit } from "../../Settings/SettingsForm/SettingsForm.styles";
 
 const Projects = () => {
   const { projectId } = useParams();
@@ -28,7 +29,10 @@ const Projects = () => {
   const selectedProjectHeading = (
     <Fragment>
       <BackButton theme={theme} to="/projects" content="Projects" />
-      <h1 style={{ textAlign: "left", marginLeft: "1.6rem" }}>{projectName}</h1>
+      <h1 style={{ textAlign: "left", marginLeft: "1.6rem" }}>
+        {projectName}
+        <Unit>(project)</Unit>
+      </h1>
     </Fragment>
   );
 

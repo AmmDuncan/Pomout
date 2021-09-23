@@ -10,11 +10,15 @@ import { tasksSlice, timerSlice } from "@store";
 
 const TasksList = ({ projectId }) => {
   const dispatch = useDispatch();
-  const projects = useProjects();
   const history = useHistory();
+  const timerActiveTask = useSelector((state) => state.timer.activeTask);
+  const projects = useProjects();
   const [tasks, relatedTasks] = useTasks(projectId);
   const { reset, set, start, updateElapsed } = timerSlice.actions;
-  const timerActiveTask = useSelector((state) => state.timer.activeTask);
+  const { checkActiveTask } = timerSlice.actions;
+  const task = timerActiveTask
+    ? tasks.find((task) => task.id === timerActiveTask)
+    : null;
 
   const project = projects.find((project) => project.id === projectId);
 
@@ -25,6 +29,12 @@ const TasksList = ({ projectId }) => {
   };
 
   const completeTask = (taskId) => {
+    dispatch(
+      checkActiveTask({
+        tasks,
+        taskId: task ? task.id : false,
+      })
+    );
     dispatch(tasksSlice.actions.toggleComplete(taskId));
   };
 

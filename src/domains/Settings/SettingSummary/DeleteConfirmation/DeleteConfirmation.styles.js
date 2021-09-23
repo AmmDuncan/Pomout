@@ -22,7 +22,7 @@ export const DeleteConfirmationWrapper = styled(Card)`
   }
 
   p {
-    line-height: 1.7;
+    line-height: 1.6;
     color: ${(props) => props.theme.text}cc;
     margin-bottom: 3.2rem;
   }

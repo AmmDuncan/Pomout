@@ -13,6 +13,7 @@ const Button = styled.button`
   font-size: 1.6rem;
   background: transparent;
   color: ${(props) => props.theme.text};
+  font-family: "Inter", sans-serif;
   //min-height: 3.2rem;
 
   &:hover {

@@ -25,7 +25,7 @@ const DeleteConfirmation = (props) => {
       ) : (
         <p>
           Are you sure you want to delete
-          <strong>"{project ? project.name : null}"</strong> and all related
+          <strong> "{project ? project.name : null}"</strong> and all related
           tasks?
         </p>
       )}
