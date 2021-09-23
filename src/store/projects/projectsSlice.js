@@ -28,7 +28,8 @@ const initialState = [
 export const addedProject = createAction(
   "projects/add",
   (name, override = {}) => {
-    return { payload: createProject(name, override) };
+    const { timeSpent, numberOfPomodoros, ...restOfOverride } = override;
+    return { payload: createProject(name, restOfOverride) };
   }
 );
 
