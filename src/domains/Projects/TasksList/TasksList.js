@@ -16,9 +16,9 @@ const TasksList = ({ projectId }) => {
   const [tasks, relatedTasks] = useTasks(projectId);
   const { reset, set, start, updateElapsed } = timerSlice.actions;
   const { checkActiveTask } = timerSlice.actions;
-  const task = timerActiveTask
-    ? tasks.find((task) => task.id === timerActiveTask)
-    : null;
+  // const task = timerActiveTask
+  //   ? tasks.find((task) => task.id === timerActiveTask)
+  //   : null;
 
   const project = projects.find((project) => project.id === projectId);
 
@@ -32,7 +32,7 @@ const TasksList = ({ projectId }) => {
     dispatch(
       checkActiveTask({
         tasks,
-        taskId: task ? task.id : false,
+        taskId: taskId,
       })
     );
     dispatch(tasksSlice.actions.toggleComplete(taskId));
