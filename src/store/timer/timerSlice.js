@@ -49,14 +49,14 @@ export const timerSlice = createSlice({
         state.play = false;
       }
     },
-    pause: (state, action) => {
+    pause: (state) => {
       state.started = null;
       state.remaining = state.remaining - state.elapsed;
       clearInterval(state.play);
       state.play = false;
       state.elapsed = 0;
     },
-    stop: (state, action) => {
+    stop: (state) => {
       state.started = null;
       state.remaining = state.pomodoroLength * 60;
       clearInterval(state.play);
@@ -69,7 +69,7 @@ export const timerSlice = createSlice({
       state.play = setInterval(action.payload.fn, 1000);
       SOUND.src = "";
     },
-    end: (state, action) => {
+    end: (state) => {
       state.started = null;
       clearInterval(state.play);
       state.play = false;
@@ -88,7 +88,7 @@ export const timerSlice = createSlice({
         state.next = "break";
       }
     },
-    reset: (state, action) => {
+    reset: () => {
       return createTimer();
     },
     playSound: (state, action) => {
@@ -107,7 +107,8 @@ export const timerSlice = createSlice({
         if (task && task.id === state.activeTask) state.activeTask = null;
       } else {
         // if task was completed
-        if (task && !task.completed) state.activeTask = null;
+        if (task && !task.completed && task.id === state.activeTask)
+          state.activeTask = null;
       }
     },
   },
